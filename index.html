@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UniShare - Wireframes (Phase 1)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h1>UniShare — Student Resource Hub</h1>
+<p class="subtitle">Phase 1 wireframes — low-fidelity blueprint, not final design</p>
+
+<div class="tabs">
+  <div class="tab active" onclick="showPage('home', this)">Home</div>
+  <div class="tab" onclick="showPage('catalog', this)">Catalog / Features</div>
+  <div class="tab" onclick="showPage('contact', this)">Contact</div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="home">
+  <div class="box navbar">
+    <span class="logo">[Logo] UniShare</span>
+    <div class="links">
+      <span class="current">Home</span><span>Catalog</span><span>Contact</span><span>Login / Register</span>
+    </div>
+  </div>
+
+  <div class="box hero">
+    <p class="label">Hero banner</p>
+    <p class="headline">[Headline: Find your notes in seconds]</p>
+    <p class="sub">[Subtext about centralized ICT resources]</p>
+    <div class="btn">[ Get started ]</div>
+  </div>
+
+  <div class="box">
+    <p class="label">Search bar</p>
+    <div class="search-row">
+      <div class="field">[ Search by subject, keyword... ]</div>
+      <div class="btn">[ Search ]</div>
+    </div>
+  </div>
+
+  <p class="label" style="margin-left:2px;">Subject category cards</p>
+  <div class="grid-3 box" style="background:none; border:none; padding:0;">
+    <div class="cat-card">[Icon]<br>Programming</div>
+    <div class="cat-card">[Icon]<br>Maths</div>
+    <div class="cat-card">[Icon]<br>Web Tech</div>
+  </div>
+
+  <div class="box" style="margin-top:10px;">
+    <p class="label">Recently added resources (list)</p>
+    <div class="list-row">[File name] — [Subject] — [Date]</div>
+    <div class="list-row">[File name] — [Subject] — [Date]</div>
+    <div class="list-row">[File name] — [Subject] — [Date]</div>
+  </div>
+
+  <div class="box footer">
+    <p class="label">Footer — Links, contact, GitHub, university crest</p>
+  </div>
+</div>
+
+<!-- CATALOG PAGE -->
+<div class="page" id="catalog">
+  <div class="box navbar">
+    <span class="logo">[Logo] UniShare</span>
+    <div class="links">
+      <span>Home</span><span class="current">Catalog</span><span>Contact</span><span>Login / Register</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <p class="label">Search + filter bar</p>
+    <div class="search-row">
+      <div class="field">[ Search notes, past papers... ]</div>
+      <div class="btn">[ Subject &#9662; ]</div>
+      <div class="btn">[ Semester &#9662; ]</div>
+    </div>
+  </div>
+
+  <div class="catalog-layout">
+    <div class="box">
+      <p class="label">Category list (sidebar)</p>
+      <div class="sidebar-item">Programming</div>
+      <div class="sidebar-item">Maths</div>
+      <div class="sidebar-item">Web Technologies</div>
+      <div class="sidebar-item">Past Papers</div>
+    </div>
+
+    <div>
+      <p class="label" style="margin-left:2px;">Resource card grid</p>
+      <div class="grid-2">
+        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
+        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
+        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
+        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
+      </div>
+      <div class="pagination">[ Pagination: 1 2 3 &rarr; ]</div>
+    </div>
+  </div>
+
+  <div class="box footer" style="margin-top:10px;">
+    <p class="label">Footer</p>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="contact">
+  <div class="box navbar">
+    <span class="logo">[Logo] UniShare</span>
+    <div class="links">
+      <span>Home</span><span>Catalog</span><span class="current">Contact</span><span>Login / Register</span>
+    </div>
+  </div>
+
+  <div class="box header-block">
+    <p class="label">Page header</p>
+    <p class="title">[Get in touch / Report an issue]</p>
+    <p class="sub">[Short subtext about feedback and requests]</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="box">
+      <p class="label">Contact form</p>
+
+      <p class="field-label">Name</p>
+      <div class="field-box">[ Your full name ]</div>
+
+      <p class="field-label">Email</p>
+      <div class="field-box">[ name@rjt.ac.lk ]</div>
+
+      <p class="field-label">Message type</p>
+      <div class="chip-row">
+        <div class="chip">[ Missing link ]</div>
+        <div class="chip">[ Request material ]</div>
+        <div class="chip">[ Feedback ]</div>
+      </div>
+
+      <p class="field-label">Message</p>
+      <div class="field-box textarea">[ Text area for message ]</div>
+
+      <div class="btn">[ Submit ]</div>
+    </div>
+
+    <div class="box info-panel">
+      <p class="label">Contact info panel</p>
+      <p>[Dept. of ICT<br>Rajarata University]</p>
+      <p>[Email address]</p>
+      <p style="margin:0;">[Office hours]</p>
+    </div>
+  </div>
+
+  <div class="box footer" style="margin-top:10px;">
+    <p class="label">Footer</p>
+  </div>
+</div>
+
+<script>
+  function showPage(id, tabEl){
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    tabEl.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
