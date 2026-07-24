@@ -1,167 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>UniShare - Wireframes (Phase 1)</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniShare | Centralized ICT Resource Platform</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#dae2fd",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-container": "#003a23",
+                        "outline-variant": "#bccabf",
+                        "on-tertiary-fixed": "#191c1e",
+                        "secondary": "#565e74",
+                        "primary-fixed": "#73fbb8",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "primary": "#006c46",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#006c46",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface": "#f8f9ff",
+                        "primary-fixed-dim": "#53de9e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#2f3234",
+                        "outline": "#6c7a70",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-container": "#5c647a",
+                        "on-primary-fixed": "#002112",
+                        "tertiary": "#5c5f61",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "tertiary-fixed": "#e0e3e5",
+                        "inverse-primary": "#53de9e",
+                        "on-surface-variant": "#3d4a41",
+                        "on-background": "#0b1c30",
+                        "primary-container": "#00b074",
+                        "on-primary-fixed-variant": "#005233",
+                        "surface-bright": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-container": "#979a9c",
+                        "background": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "card-padding": "1.25rem",
+                        "container-max": "1200px",
+                        "gutter": "1.5rem",
+                        "section-gap": "3rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.5", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-effect { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+        .hero-pattern { background-image: radial-gradient(#00b07422 1px, transparent 1px); background-size: 20px 20px; }
+        .hover-card:hover { transform: translateY(-4px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
 </head>
-<body>
-
-<h1>UniShare — Student Resource Hub</h1>
-<p class="subtitle">Phase 1 wireframes — low-fidelity blueprint, not final design</p>
-
-<div class="tabs">
-  <div class="tab active" onclick="showPage('home', this)">Home</div>
-  <div class="tab" onclick="showPage('catalog', this)">Catalog / Features</div>
-  <div class="tab" onclick="showPage('contact', this)">Contact</div>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-sm border-b border-outline-variant">
+<div class="max-w-container-max mx-auto h-20 px-margin-mobile md:px-gutter flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">menu_book</span>
+<span class="text-headline-md font-headline-lg text-primary tracking-tight">UniShare</span>
 </div>
-
-<!-- HOME PAGE -->
-<div class="page active" id="home">
-  <div class="box navbar">
-    <span class="logo">[Logo] UniShare</span>
-    <div class="links">
-      <span class="current">Home</span><span>Catalog</span><span>Contact</span><span>Login / Register</span>
-    </div>
-  </div>
-
-  <div class="box hero">
-    <p class="label">Hero banner</p>
-    <p class="headline">[Headline: Find your notes in seconds]</p>
-    <p class="sub">[Subtext about centralized ICT resources]</p>
-    <div class="btn">[ Get started ]</div>
-  </div>
-
-  <div class="box">
-    <p class="label">Search bar</p>
-    <div class="search-row">
-      <div class="field">[ Search by subject, keyword... ]</div>
-      <div class="btn">[ Search ]</div>
-    </div>
-  </div>
-
-  <p class="label" style="margin-left:2px;">Subject category cards</p>
-  <div class="grid-3 box" style="background:none; border:none; padding:0;">
-    <div class="cat-card">[Icon]<br>Programming</div>
-    <div class="cat-card">[Icon]<br>Maths</div>
-    <div class="cat-card">[Icon]<br>Web Tech</div>
-  </div>
-
-  <div class="box" style="margin-top:10px;">
-    <p class="label">Recently added resources (list)</p>
-    <div class="list-row">[File name] — [Subject] — [Date]</div>
-    <div class="list-row">[File name] — [Subject] — [Date]</div>
-    <div class="list-row">[File name] — [Subject] — [Date]</div>
-  </div>
-
-  <div class="box footer">
-    <p class="label">Footer — Links, contact, GitHub, university crest</p>
-  </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md" href="#">Home</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Catalog</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                    Login / Register
+                </button>
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
 </div>
-
-<!-- CATALOG PAGE -->
-<div class="page" id="catalog">
-  <div class="box navbar">
-    <span class="logo">[Logo] UniShare</span>
-    <div class="links">
-      <span>Home</span><span class="current">Catalog</span><span>Contact</span><span>Login / Register</span>
-    </div>
-  </div>
-
-  <div class="box">
-    <p class="label">Search + filter bar</p>
-    <div class="search-row">
-      <div class="field">[ Search notes, past papers... ]</div>
-      <div class="btn">[ Subject &#9662; ]</div>
-      <div class="btn">[ Semester &#9662; ]</div>
-    </div>
-  </div>
-
-  <div class="catalog-layout">
-    <div class="box">
-      <p class="label">Category list (sidebar)</p>
-      <div class="sidebar-item">Programming</div>
-      <div class="sidebar-item">Maths</div>
-      <div class="sidebar-item">Web Technologies</div>
-      <div class="sidebar-item">Past Papers</div>
-    </div>
-
-    <div>
-      <p class="label" style="margin-left:2px;">Resource card grid</p>
-      <div class="grid-2">
-        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
-        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
-        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
-        <div class="res-card">[Icon] File title<br><span class="muted">Subject &middot; Semester</span><br>[ Download ]</div>
-      </div>
-      <div class="pagination">[ Pagination: 1 2 3 &rarr; ]</div>
-    </div>
-  </div>
-
-  <div class="box footer" style="margin-top:10px;">
-    <p class="label">Footer</p>
-  </div>
 </div>
-
-<!-- CONTACT PAGE -->
-<div class="page" id="contact">
-  <div class="box navbar">
-    <span class="logo">[Logo] UniShare</span>
-    <div class="links">
-      <span>Home</span><span>Catalog</span><span class="current">Contact</span><span>Login / Register</span>
-    </div>
-  </div>
-
-  <div class="box header-block">
-    <p class="label">Page header</p>
-    <p class="title">[Get in touch / Report an issue]</p>
-    <p class="sub">[Short subtext about feedback and requests]</p>
-  </div>
-
-  <div class="contact-layout">
-    <div class="box">
-      <p class="label">Contact form</p>
-
-      <p class="field-label">Name</p>
-      <div class="field-box">[ Your full name ]</div>
-
-      <p class="field-label">Email</p>
-      <div class="field-box">[ name@rjt.ac.lk ]</div>
-
-      <p class="field-label">Message type</p>
-      <div class="chip-row">
-        <div class="chip">[ Missing link ]</div>
-        <div class="chip">[ Request material ]</div>
-        <div class="chip">[ Feedback ]</div>
-      </div>
-
-      <p class="field-label">Message</p>
-      <div class="field-box textarea">[ Text area for message ]</div>
-
-      <div class="btn">[ Submit ]</div>
-    </div>
-
-    <div class="box info-panel">
-      <p class="label">Contact info panel</p>
-      <p>[Dept. of ICT<br>Rajarata University]</p>
-      <p>[Email address]</p>
-      <p style="margin:0;">[Office hours]</p>
-    </div>
-  </div>
-
-  <div class="box footer" style="margin-top:10px;">
-    <p class="label">Footer</p>
-  </div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-gutter mt-8">
+<div class="max-w-container-max mx-auto bg-surface-container-low rounded-xl relative overflow-hidden hero-pattern">
+<!-- Abstract Elements -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="relative grid md:grid-cols-2 items-center gap-8 py-16 px-8 md:px-16">
+<div class="text-center md:text-left">
+<span class="uppercase tracking-widest text-primary font-bold text-label-sm mb-4 block">HERO BANNER</span>
+<h1 class="font-headline-lg text-display-lg text-on-surface mb-4 leading-tight">Find your notes in seconds</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md mx-auto md:mx-0">Centralized ICT resources for university students. Discover papers, code, and guides tailored for your course.</p>
+<button class="inline-flex items-center gap-2 px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-bold hover:shadow-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined">rocket_launch</span>
+                            Get started
+                        </button>
 </div>
-
+<div class="relative hidden md:block">
+<div class="flex justify-center items-center gap-8">
+<!-- Visual Composition inspired by reference images -->
+<img class="w-full max-w-sm rounded-2xl drop-shadow-2xl transform rotate-3" data-alt="A 3D stylized rendering of an open university notebook with a pen, floating next to a modern silver laptop on a clean pastel mint background. The composition is professional, clean, and uses soft shadows to create depth in a modern corporate ICT resource platform style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4nu-RUf2kuEzUgR0ugNQfdPH6LlXJ1cKtWQXpod0hp-PF0wN7ZDDv-bqzUEgBavTLLN1p4k0x5jpkvNqL6fXFrWkgBK9DpT2C3DOEl35feadz5pCxBHEVBy-UTwZB1Iawls9MsC1cLr21G0kXpGarvK3KxQJaO4w70cg-l81nVpijNTHjOrft64zEqKqYIc_8BUijPEF-qUgrDKVIrprtsGdMcO7qbjbBGJTOZq1j_uqYscI7nAleAZpqXFc3za-gqfH06tgZVHjv"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mt-12">
+<div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm">
+<p class="text-label-sm font-bold text-on-surface-variant mb-4 uppercase tracking-wider">Search Bar</p>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-1 group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Search by subject, keyword..." type="text"/>
+</div>
+<button class="px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-bold flex items-center justify-center gap-2 hover:brightness-95 transition-all">
+<span class="material-symbols-outlined">search</span>
+                        Search
+                    </button>
+</div>
+</div>
+</section>
+<!-- Subject Categories -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mt-16 mb-16">
+<p class="text-label-sm font-bold text-on-surface-variant mb-6 uppercase tracking-wider">Subject Category Cards</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Programming -->
+<a class="group hover-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex items-center justify-between" href="#">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">code</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Programming</h3>
+<p class="text-on-surface-variant text-label-md">Browse resources</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<!-- Maths -->
+<a class="group hover-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex items-center justify-between" href="#">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#7e22ce] group-hover:bg-[#7e22ce] group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">function</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Maths</h3>
+<p class="text-on-surface-variant text-label-md">Browse resources</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#7e22ce] group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<!-- Web Tech -->
+<a class="group hover-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex items-center justify-between" href="#">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">language</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Web Tech</h3>
+<p class="text-on-surface-variant text-label-md">Browse resources</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Recently Added Resources -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-24">
+<p class="text-label-sm font-bold text-on-surface-variant mb-6 uppercase tracking-wider">Recently Added Resources</p>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<!-- Resource Item 1 -->
+<div class="p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between hover:bg-surface transition-colors border-b border-outline-variant last:border-b-0">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-10 h-12 flex-shrink-0 bg-red-50 flex items-center justify-center rounded border border-red-100">
+<span class="material-symbols-outlined text-red-600">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="font-bold text-body-md text-on-surface">Data Structures and Algorithms.pdf</h4>
+<div class="flex items-center gap-3 mt-1 text-label-sm text-on-surface-variant">
+<span class="px-2 py-0.5 bg-surface-container rounded uppercase text-[10px]">Programming</span>
+<span>•</span>
+<span>21 May 2024</span>
+</div>
+</div>
+</div>
+<button class="mt-4 md:mt-0 p-2 text-primary hover:bg-primary-container/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<!-- Resource Item 2 -->
+<div class="p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between hover:bg-surface transition-colors border-b border-outline-variant last:border-b-0">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-10 h-12 flex-shrink-0 bg-blue-50 flex items-center justify-center rounded border border-blue-100">
+<span class="material-symbols-outlined text-blue-600">description</span>
+</div>
+<div>
+<h4 class="font-bold text-body-md text-on-surface">Calculus Notes.docx</h4>
+<div class="flex items-center gap-3 mt-1 text-label-sm text-on-surface-variant">
+<span class="px-2 py-0.5 bg-[#f3e8ff] text-[#7e22ce] rounded uppercase text-[10px]">Maths</span>
+<span>•</span>
+<span>19 May 2024</span>
+</div>
+</div>
+</div>
+<button class="mt-4 md:mt-0 p-2 text-primary hover:bg-primary-container/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<!-- Resource Item 3 -->
+<div class="p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between hover:bg-surface transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-10 h-12 flex-shrink-0 bg-orange-50 flex items-center justify-center rounded border border-orange-100">
+<span class="material-symbols-outlined text-orange-600">slideshow</span>
+</div>
+<div>
+<h4 class="font-bold text-body-md text-on-surface">Web Development Basics.pptx</h4>
+<div class="flex items-center gap-3 mt-1 text-label-sm text-on-surface-variant">
+<span class="px-2 py-0.5 bg-surface-container-high text-secondary rounded uppercase text-[10px]">Web Tech</span>
+<span>•</span>
+<span>17 May 2024</span>
+</div>
+</div>
+</div>
+<button class="mt-4 md:mt-0 p-2 text-primary hover:bg-primary-container/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max mx-auto py-section-gap px-margin-mobile md:px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1">menu_book</span>
+<span class="text-headline-sm font-headline-sm text-primary tracking-tight">UniShare</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-200 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">link</span>
+                        Links
+                    </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-200 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+                        Contact
+                    </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-200 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">code</span>
+                        GitHub
+                    </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-200 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+                        University Crest
+                    </a>
+</div>
+</div>
+<div class="text-center md:text-left border-t border-outline-variant/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-label-md opacity-70">
+                    © 2024 UniShare ICT Resource Platform. All rights reserved.
+                </p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant text-label-sm hover:underline" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant text-label-sm hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
 <script>
-  function showPage(id, tabEl){
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    tabEl.classList.add('active');
-  }
-</script>
-
-</body>
-</html>
+        // Micro-interactions for resource list
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if(icon.innerText === 'download') {
+                icon.parentElement.addEventListener('click', (e) => {
+                    const ripple = document.createElement('div');
+                    ripple.className = 'absolute inset-0 bg-primary/10 rounded-full animate-ping';
+                    e.currentTarget.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 500);
+                });
+            }
+        });
+    </script>
+</body></html>
