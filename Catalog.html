@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniShare Catalog - Academic Resources</title>
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary: #006c46;
+            --primary-container: #00b074;
+            --on-primary-container: #003a23;
+            --bs-primary: #006c46;
+            --bs-primary-rgb: 0, 108, 70;
+            --academic-emerald: #00b074;
+            --surface: #f8f9ff;
+            --surface-container-lowest: #ffffff;
+            --on-surface: #0b1c30;
+            --on-surface-variant: #3d4a41;
+            --secondary: #565e74;
+            --outline-variant: #bccabf;
+            --border-radius-xl: 0.75rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface);
+            padding-top: 80px;
+        }
+
+        /* Navbar Styles from Home Page */
+        .text-primary-theme { 
+            color: var(--primary) !important; 
+        }
+
+        .bg-surface-container-lowest { 
+            background-color: var(--surface-container-lowest) !important; 
+        }
+
+        .navbar {
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--outline-variant);
+        }
+
+        .nav-link {
+            color: var(--on-surface-variant);
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link.active {
+            color: var(--primary) !important;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-container);
+            color: var(--on-primary-container);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            border-radius: var(--border-radius-xl);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 176, 116, 0.2);
+        }
+
+        /* Page Content Styles */
+        .btn-emerald {
+            background-color: var(--academic-emerald);
+            color: white;
+            border: none;
+        }
+
+        .btn-emerald:hover {
+            background-color: #009663;
+            color: white;
+        }
+
+        .btn-primary-emerald {
+            background-color: var(--bs-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary-emerald:hover {
+            background-color: #005436;
+            color: white;
+        }
+
+        .resource-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--outline-variant);
+            border-radius: 0.75rem;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
+            border-color: var(--academic-emerald);
+            transform: translateY(-2px);
+        }
+
+        .list-group-item {
+            border: none;
+            padding: 1rem;
+            color: var(--secondary);
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .list-group-item.active {
+            background-color: var(--academic-emerald);
+            border-color: var(--academic-emerald);
+            color: white;
+        }
+
+        .list-group-item:not(.active):hover {
+            background-color: #eff4ff;
+            color: var(--bs-primary);
+        }
+
+        .search-bar-container {
+            background-color: #ffffff;
+            border: 1px solid var(--outline-variant);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .material-symbols-outlined {
+            vertical-align: middle;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        footer {
+            border-top: 1px solid var(--outline-variant);
+            padding: 3rem 0;
+            background-color: var(--surface-container-low);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Header / Navigation Bar -->
+<header class="fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-md navbar-light bg-surface-container-lowest">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="material-symbols-outlined text-primary-theme fs-2" style="font-variation-settings: 'FILL' 1">menu_book</span>
+        <span class="fw-bold text-primary-theme h4 mb-0">UniShare</span>
+      </a>
+      <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto gap-lg-4">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Catalog.html">Catalog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="d-none d-lg-block">
+          <a class="btn btn-primary-custom d-flex align-items-center gap-2 rounded-pill px-4" href="Login.html">
+            <span class="material-symbols-outlined fs-5">person</span>
+            Login / Register
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="container py-4 flex-grow-1">
+<!-- Search & Filter Bar -->
+<section class="mb-4">
+<div class="search-bar-container shadow-sm">
+<div class="row g-3">
+<div class="col-lg-6">
+<div class="input-group">
+<span class="input-group-text bg-white border-end-0">
+<span class="material-symbols-outlined text-secondary">search</span>
+</span>
+<input class="form-control border-start-0 ps-0 py-2" placeholder="Search notes, past papers..." type="text"/>
+</div>
+</div>
+<div class="col-md-6 col-lg-2">
+<select class="form-select py-2 text-secondary">
+<option selected="">Subject</option>
+<option>Computer Science</option>
+<option>Mathematics</option>
+<option>Physics</option>
+</select>
+</div>
+<div class="col-md-6 col-lg-2">
+<select class="form-select py-2 text-secondary">
+<option selected="">Semester</option>
+<option>Semester 1</option>
+<option>Semester 2</option>
+</select>
+</div>
+<div class="col-lg-2">
+<button class="btn btn-primary-emerald w-100 py-2 fw-medium">Search</button>
+</div>
+</div>
+</div>
+</section>
+<div class="row g-4">
+<!-- Sidebar Category List -->
+<aside class="col-md-4 col-lg-3">
+<div class="card border-0 shadow-sm overflow-hidden sticky-top" style="top: 100px;">
+<div class="card-header bg-light border-bottom-0 py-3">
+<h5 class="mb-0 fw-bold">Categories</h5>
+</div>
+<div class="list-group list-group-flush">
+<a class="list-group-item list-group-item-action active" href="#">
+<span>All Resources</span>
+<span class="material-symbols-outlined fs-6">chevron_right</span>
+</a>
+<a class="list-group-item list-group-item-action" href="#">
+<span>Programming</span>
+<span class="material-symbols-outlined fs-6">chevron_right</span>
+</a>
+<a class="list-group-item list-group-item-action" href="#">
+<span>Maths</span>
+<span class="material-symbols-outlined fs-6">chevron_right</span>
+</a>
+<a class="list-group-item list-group-item-action" href="#">
+<span>Web Technologies</span>
+<span class="material-symbols-outlined fs-6">chevron_right</span>
+</a>
+<a class="list-group-item list-group-item-action" href="#">
+<span>Past Papers</span>
+<span class="material-symbols-outlined fs-6">chevron_right</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Resource Card Grid -->
+<div class="col-md-8 col-lg-9">
+<div class="row g-4 mb-5">
+<!-- Card 1 -->
+<div class="col-lg-6">
+<div class="card resource-card h-100 p-4">
+<div class="d-flex gap-3 mb-3">
+<div class="bg-danger bg-opacity-10 rounded d-flex align-items-center justify-center flex-shrink-0" style="width: 48px; height: 48px;">
+<span class="material-symbols-outlined text-danger">picture_as_pdf</span>
+</div>
+<div>
+<h5 class="fw-bold mb-1">Advanced Algorithm Analysis</h5>
+<div class="d-flex flex-wrap gap-3 small text-secondary">
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">school</span> Programming</span>
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">calendar_today</span> Semester 1</span>
+</div>
+</div>
+</div>
+<p class="text-secondary small mb-4 flex-grow-1">Detailed notes covering Big-O notation, recursive algorithms, and dynamic programming techniques with examples.</p>
+<div class="d-flex justify-content-between align-items-center pt-3 border-top">
+<span class="small text-muted">1.2 MB • PDF</span>
+<button class="btn btn-link p-0 text-decoration-none fw-bold d-flex align-items-center gap-1" style="color: var(--bs-primary)">
+<span class="material-symbols-outlined fs-5">download</span> Download
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="col-lg-6">
+<div class="card resource-card h-100 p-4">
+<div class="d-flex gap-3 mb-3">
+<div class="bg-primary bg-opacity-10 rounded d-flex align-items-center justify-center flex-shrink-0" style="width: 48px; height: 48px;">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div>
+<h5 class="fw-bold mb-1">Discrete Mathematics Final</h5>
+<div class="d-flex flex-wrap gap-3 small text-secondary">
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">functions</span> Maths</span>
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">calendar_today</span> Semester 2</span>
+</div>
+</div>
+</div>
+<p class="text-secondary small mb-4 flex-grow-1">Past exam paper from 2023. Includes graph theory, set theory, and combinatorics questions.</p>
+<div class="d-flex justify-content-between align-items-center pt-3 border-top">
+<span class="small text-muted">850 KB • DOCX</span>
+<button class="btn btn-link p-0 text-decoration-none fw-bold d-flex align-items-center gap-1" style="color: var(--bs-primary)">
+<span class="material-symbols-outlined fs-5">download</span> Download
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="col-lg-6">
+<div class="card resource-card h-100 p-4">
+<div class="d-flex gap-3 mb-3">
+<div class="bg-warning bg-opacity-10 rounded d-flex align-items-center justify-center flex-shrink-0" style="width: 48px; height: 48px;">
+<span class="material-symbols-outlined text-warning">slideshow</span>
+</div>
+<div>
+<h5 class="fw-bold mb-1">Modern Web Frameworks</h5>
+<div class="d-flex flex-wrap gap-3 small text-secondary">
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">language</span> Web Tech</span>
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">calendar_today</span> Semester 1</span>
+</div>
+</div>
+</div>
+<p class="text-secondary small mb-4 flex-grow-1">Lecture slides introducing React, Vue, and Angular with comparative performance benchmarks.</p>
+<div class="d-flex justify-content-between align-items-center pt-3 border-top">
+<span class="small text-muted">4.5 MB • PPTX</span>
+<button class="btn btn-link p-0 text-decoration-none fw-bold d-flex align-items-center gap-1" style="color: var(--bs-primary)">
+<span class="material-symbols-outlined fs-5">download</span> Download
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="col-lg-6">
+<div class="card resource-card h-100 p-4">
+<div class="d-flex gap-3 mb-3">
+<div class="bg-danger bg-opacity-10 rounded d-flex align-items-center justify-center flex-shrink-0" style="width: 48px; height: 48px;">
+<span class="material-symbols-outlined text-danger">picture_as_pdf</span>
+</div>
+<div>
+<h5 class="fw-bold mb-1">Data Structures Guide</h5>
+<div class="d-flex flex-wrap gap-3 small text-secondary">
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">schema</span> Programming</span>
+<span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">calendar_today</span> Semester 2</span>
+</div>
+</div>
+</div>
+<p class="text-secondary small mb-4 flex-grow-1">A comprehensive cheat sheet for stacks, queues, trees, and linked list implementations in Java.</p>
+<div class="d-flex justify-content-between align-items-center pt-3 border-top">
+<span class="small text-muted">2.1 MB • PDF</span>
+<button class="btn btn-link p-0 text-decoration-none fw-bold d-flex align-items-center gap-1" style="color: var(--bs-primary)">
+<span class="material-symbols-outlined fs-5">download</span> Download
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<nav>
+<ul class="pagination justify-content-center gap-2 border-0">
+<li class="page-item">
+<a aria-label="Previous" class="page-link rounded text-secondary border-light-subtle" href="#">
+<span class="material-symbols-outlined fs-5">chevron_left</span>
+</a>
+</li>
+<li class="page-item"><a class="page-link rounded btn-primary-emerald active border-0" href="#">1</a></li>
+<li class="page-item"><a class="page-link rounded text-secondary border-light-subtle" href="#">2</a></li>
+<li class="page-item"><a class="page-link rounded text-secondary border-light-subtle" href="#">3</a></li>
+<li class="page-item disabled px-2 pt-1 text-muted">...</li>
+<li class="page-item">
+<a aria-label="Next" class="page-link rounded text-secondary border-light-subtle" href="#">
+<span class="material-symbols-outlined fs-5">chevron_right</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white footer-border py-5 mt-5" data-purpose="footer">
+<div class="container">
+<div class="row align-items-center mb-4 pb-4 footer-border border-0 border-bottom border-light">
+<div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+<a class="text-decoration-none d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-2" href="index.html">
+<svg class="text-emerald" fill="currentColor" height="32" viewbox="0 0 20 20" width="32"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2 .712V17a1 1 0 001 1z"></path></svg>
+<span class="fs-4 fw-bold text-emerald">UniShare</span>
+</a>
+<p class="small text-muted mb-0">The central hub for academic resource sharing within Rajarata University.</p>
+</div>
+<div class="col-md-5 mb-4 mb-md-0">
+<ul class="nav justify-content-center gap-3">
+<li><a class="nav-link p-0 small" href="Catalog.html">Search Catalog</a></li>
+<li><a class="nav-link p-0 small" href="#">Privacy Policy</a></li>
+<li><a class="nav-link p-0 small" href="#">Terms of Service</a></li>
+<li><a class="nav-link p-0 small" href="Contact.html">Contact Support</a></li>
+</ul>
+</div>
+<div class="col-md-3 text-center text-md-end">
+<div class="d-flex justify-content-center justify-content-md-end gap-3">
+<a class="text-secondary opacity-50 hover-opacity-100" href="#">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+</a>
+<a class="text-secondary opacity-50 hover-opacity-100" href="#">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center">
+<p class="small text-muted mb-0">© 2023 UniShare - Rajarata University of Sri Lanka. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>
